@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AM Seguridad</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #ccffcc;
+      overflow-x: hidden;
+    }
+    .menu {
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: rgba(0, 64, 0, 0.85);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px #00ff88aa;
+      gap: 0.8rem;
+    }
+    .menu-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .menu a {
+      color: #00ff88;
+      text-decoration: none;
+      padding: 0.7rem 1.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid #00ff88;
+      border-radius: 6px;
+      text-align: center;
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .menu a:hover {
+      background-color: #00ff88;
+      color: #003300;
+      text-shadow: none;
+      transform: scale(1.05);
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: max-content;
+      background: radial-gradient(circle at top, rgba(0,64,0,0.95), rgba(0,32,0,0.9));
+      box-shadow: 0 12px 25px rgba(0,255,136,0.45);
+      border-radius: 12px;
+      padding: 0.7rem 0;
+      z-index: 1001;
+      animation: glassGlow 3s infinite alternate;
+    }
+    .submenu a {
+      display: block;
+      padding: 0.6rem 1.8rem;
+      font-size: 1rem;
+      white-space: nowrap;
+      color: #ccffcc;
+      border-bottom: 1px solid #004422;
+      transition: background 0.3s, color 0.3s;
+    }
+    .submenu a:hover {
+      background-color: #00ff88;
+      color: #001a00;
+      font-weight: bold;
+    }
+    .menu-item:hover .submenu {
+      display: block;
+      animation: fadeInDown 0.3s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glassGlow {
+      from { box-shadow: 0 0 20px #00ff88aa, inset 0 0 10px #00330088; }
+      to { box-shadow: 0 0 30px #00ffaaee, inset 0 0 15px #004400aa; }
+    }
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .overlay {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-top: 3rem;
+      color: #00ff88;
+    }
+    .clientes-loop {
+      margin-top: 10vh;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: 0 0 15px #00ff88;
+      background: rgba(0, 32, 0, 0.5);
+      position: fixed;
+      bottom: 3rem;
+      width: 100%;
+      z-index: 999;
+    }
+    .clientes-marquee {
+      display: inline-block;
+      animation: scroll-left 40s linear infinite;
+    }
+    .clientes-marquee span {
+      display: inline-block;
+      margin: 0 2rem;
+      font-size: 1.5rem;
+      color: #ccffcc;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 100vh;
+      background: rgba(0, 32, 0, 0.6);
+      color: #88ffaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay loop muted class="video-background">
+    <source src="https://amseguridadvideo.s3.amazonaws.com/AMSEGURIDAD_LOOPFINAL.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+  <nav class="menu">
+    <div class="menu-item"><a href="#nuestra-empresa">Nuestra Empresa</a></div>
+    <div class="menu-item"><a href="#habilitaciones">Habilitaciones</a></div>
+    <div class="menu-item"><a href="#trabaja-con-nosotros">Trabaja con Nosotros</a></div>
+    <div class="menu-item">
+      <a href="#personas-hogar">Personas y Hogar</a>
+      <div class="submenu">
+        <a href="#">Sistema de Monitoreo Remoto</a>
+        <a href="#">Monitoreo de Alarmas</a>
+        <a href="#">Instalación de Cerco Perimetral</a>
+        <a href="#">Guardia de Seguridad</a>
+      </div>
+    </div>
+    <div class="menu-item">
+      <a href="#negocios-comercios">Negocios y Comercios</a>
+      <div class="submenu">
+        <a href="#">Seguridad Patrimonial</a>
+        <a href="#">Custodia de Mercadería en Tránsito</a>
+        <a href="#">Seguimiento Satelital</a>
+        <a href="#">Monitoreo de Alarmas</a>
+        <a href="#">Control de Pérdidas</a>
+        <a href="#">Vigilancia Física</a>
+      </div>
+    </div>
+    <div class="menu-item">
+      <a href="#empresas-instituciones">Empresas e Instituciones</a>
+      <div class="submenu">
+        <a href="#">Sistema de Monitoreo Remoto</a>
+        <a href="#">Monitoreo de Alarmas</a>
+        <a href="#">Instalación de Cerco Perimetral</a>
+        <a href="#">Guardia de Seguridad</a>
+        <a href="#">Informes Ambientales</a>
+        <a href="#">Control de Pérdidas</a>
+        <a href="#">Investigaciones Particulares</a>
+      </div>
+    </div>
+  </nav>
+  <div class="overlay">
+    <h1>Tecnología de Seguridad Avanzada</h1>
+    <h2>AM SEGURIDAD</h2>
+  </div>
+  <div class="clientes-loop">
+    <div class="clientes-marquee">
+      <span>Peabody</span><span>Sanford</span><span>Colcar</span><span>Topacio</span><span>Alba</span>
+      <span>Farmacia Central Oeste</span><span>SATRO</span><span>Dreamco</span><span>Rebesa</span>
+      <span>Alijor</span><span>Henkel</span><span>Automotores Haedo</span>
+      <span>Peabody</span><span>Sanford</span><span>Colcar</span><span>Topacio</span><span>Alba</span>
+      <span>Farmacia Central Oeste</span><span>SATRO</span><span>Dreamco</span><span>Rebesa</span>
+      <span>Alijor</span><span>Henkel</span><span>Automotores Haedo</span>
+    </div>
+  </div>
+  <footer>&copy; AM Seguridad - Todos los derechos reservados - 2025</footer>
+</body>
+</html>
